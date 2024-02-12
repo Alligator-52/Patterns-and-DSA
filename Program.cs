@@ -6,9 +6,9 @@ public class Program
     {
         int[] arr = { 2, 3, 4, 10, 40 };
         int x = 10;
-        LinearSearch search = new(arr);
-        int result =  search.SearchElement(x);
+        LinearSearch<int> search = new(arr, x);
+        int result = search.SearchElement();
 
-        Console.Write(result == -1 ? "Element not found!" : $"{x} found in array!");
+        Console.Write(result == -1 ? "Element not found!" : $"{x} found at index {result}!");
     }
 }
