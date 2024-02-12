@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Algos
 {
-    public class LinearSearch<T> where T : IComparable<T>
+    public class LinearSearch<T>
     {
         private T[] _dataSet;
         private T _requiredElement;
@@ -18,7 +18,9 @@ namespace Algos
         {
             for(int i = 0; i < _dataSet.Length; i++)
             {
-                if (_dataSet[i].CompareTo(_requiredElement) == 0)
+                //if (_dataSet[i].CompareTo(_requiredElement) == 0)
+                //    return i;
+                if(EqualityComparer<T>.Default.Equals(_dataSet[i], _requiredElement))
                     return i;
             }
             return -1;
