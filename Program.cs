@@ -7,7 +7,7 @@ public class Program
         int[] arr = { 2, 3, 4, 10, 40 };
         int x = 10;
         LinearSearch<int> search = new(arr, x);
-        int result = search.SearchElement();
+        int result = search.SearchHashedElement();
 
         Console.Write(result == -1 ? "Element not found!" : $"{x} found at index {result}!");
     }

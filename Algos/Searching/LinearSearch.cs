@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Algos
 {
-    public class LinearSearch<T>
+    internal class LinearSearch<T>
     {
         private T[] _dataSet;
         private T _requiredElement;
-    
+        private Dictionary<T, int> _hashTable = new();
         public LinearSearch(T[] dataSet, T requiredElement) 
         {
             _dataSet = dataSet;
@@ -24,6 +24,19 @@ namespace Algos
                     return i;
             }
             return -1;
+        }
+
+        public int SearchHashedElement()
+        {
+            for(int i = 0; i < _dataSet.Length; i++)
+            {
+                _hashTable.Add(_dataSet[i], i);
+            }
+
+            if(_hashTable.ContainsKey(_requiredElement))
+                return _hashTable[_requiredElement];
+            else
+                return -1;
         }
     }
 }
