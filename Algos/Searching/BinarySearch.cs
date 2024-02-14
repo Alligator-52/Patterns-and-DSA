@@ -19,7 +19,7 @@ namespace Algos
             _requiredElement = required;
         }
 
-        public T BinarySearch()
+        public int Search()
         {
             if (!IsSorted())
                 Array.Sort(_dataset);
@@ -31,9 +31,9 @@ namespace Algos
             {
                 int mid = low + (high - 1) / 2;
 
-                if (_dataset[mid] == _requiredElement)
+                if (EqualityComparer<T>.Default.Equals(_dataset[mid], _requiredElement))
                     return mid;
-                else if (_dataset[mid] < _requiredElement)
+                else if (Comparer<T>.Default.Compare(_dataset[mid], _requiredElement) < 0)
                     low = mid + 1;
                 else
                     high = mid - 1;
@@ -45,7 +45,7 @@ namespace Algos
         {
             for (int i = 0; i < _dataset.Length - 1; i++)
             {
-                if (_dataset[i] > _dataset[i + 1])
+                if (Comparer<T>.Default.Compare(_dataset[i], _dataset[i+1]) > 0)
                 {
                     return false;
                 }
